@@ -29617,6 +29617,7 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           movieData = _this$props.movieData,
           onMovieClick = _this$props.onMovieClick;
+      console.log(this.props);
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-card",
         onClick: function onClick() {
@@ -29681,6 +29682,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           movieData = _this$props.movieData,
           onBackClick = _this$props.onBackClick;
+      console.log(this.props);
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-view"
       }, /*#__PURE__*/_react.default.createElement("div", {
@@ -29808,19 +29810,17 @@ var MainView = /*#__PURE__*/function (_React$Component) {
 
       var _this$state = this.state,
           movies = _this$state.movies,
-          selectedMovie = _this$state.selectedMovie;
-      if (selectedMovie) return /*#__PURE__*/_react.default.createElement(_movieView.MovieView, {
-        movieData: selectedMovie
-      });
+          selectedMovie = _this$state.selectedMovie; // if (selectedMovie) return <MovieView movieData = {selectedMovie} />;
+
       if (movies.length === 0) return /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
       }, "The list is empty!");
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
       }, selectedMovie ? /*#__PURE__*/_react.default.createElement(_movieView.MovieView, {
-        movie: selectedMovie,
-        onBackClick: function onBackClick(newMovie) {
-          _this2.setSelectedMovie(newMovie);
+        movieData: selectedMovie,
+        onBackClick: function onBackClick(newSelectMovie) {
+          _this2.setSelectedMovie(newSelectMovie);
         }
       }) : movies.map(function (movie) {
         return /*#__PURE__*/_react.default.createElement(_movieCard.MovieCard, {
@@ -29999,7 +29999,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53246" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54114" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

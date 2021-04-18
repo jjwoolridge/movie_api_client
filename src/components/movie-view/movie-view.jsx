@@ -3,10 +3,10 @@ import React from 'react';
 export class MovieView extends React.Component {
 
   render() {
-    const {movieData, onBackClick} = this.props;
-
+    const { movieData, onBackClick } = this.props;
+    console.log(this.props);
     return (
-      <div className="movie-view">
+      <div className="movie-view" >
         <div className="movie-poster">
           <img src={movieData.ImagePath} />
         </div>
