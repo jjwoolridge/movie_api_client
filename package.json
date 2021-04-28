@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "parcel-bundler": "^1.12.5",
     "react": "^17.0.2",
     "react-com": "^1.0.6",
