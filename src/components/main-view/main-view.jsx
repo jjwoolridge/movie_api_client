@@ -16,7 +16,7 @@ export class MainView extends React.Component {
     axios.get('https://myflixdb-jjw.herokuapp.com/movies')
       .then(response => {
         this.setState({
-          movies: response.data;
+          movies: response.data
         })
       })
       .catch(error => {
