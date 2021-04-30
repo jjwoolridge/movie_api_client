@@ -1,0 +1,37 @@
+var helpers = require("../../../../../../AppData/Roaming/nvm/v16.0.0/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _react = require('react');
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactDom = require('react-dom');
+  var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
+  var _componentsMainViewMainView = require('./components/main-view/main-view');
+  require("./index.scss");
+  var _jsxFileName = "C:\\Users\\212597876\\Documents\\CF\\jilli\\github\\movie_api_client\\src\\index.jsx";
+  // main component (to use all others)
+  class MyFlixApplication extends _reactDefault.default.Component {
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement(_componentsMainViewMainView.MainView, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 14,
+            columnNumber: 7
+          }
+        })
+      );
+    }
+  }
+  // Finds the root of app
+  const container = document.getElementsByClassName("app-container")[0];
+  // tells react to render app in root DOM
+  _reactDomDefault.default.render(/*#__PURE__*/_reactDefault.default.createElement(MyFlixApplication), container);
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

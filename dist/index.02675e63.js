@@ -1054,7 +1054,7 @@ try {
   var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
   var _componentsMainViewMainView = require('./components/main-view/main-view');
   require("./index.scss");
-  var _jsxFileName = "C:\\Users\\212597876\\documents\\cf\\jilli\\github\\movie_api_client\\src\\index.jsx";
+  var _jsxFileName = "C:\\Users\\212597876\\Documents\\CF\\jilli\\github\\movie_api_client\\src\\index.jsx";
   // main component (to use all others)
   class MyFlixApplication extends _reactDefault.default.Component {
     render() {
@@ -26286,28 +26286,37 @@ try {
   });
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _axios = require('axios');
-  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  require('axios');
   var _movieCardMovieCard = require('../movie-card/movie-card');
   var _movieViewMovieView = require('../movie-view/movie-view');
-  var _jsxFileName = "C:\\Users\\212597876\\documents\\cf\\jilli\\github\\movie_api_client\\src\\components\\main-view\\main-view.jsx";
+  var _jsxFileName = "C:\\Users\\212597876\\Documents\\CF\\jilli\\github\\movie_api_client\\src\\components\\main-view\\main-view.jsx";
   class MainView extends _reactDefault.default.Component {
     constructor() {
       super();
       this.state = {
-        movies: [],
+        movies: [{
+          _id: 1,
+          Title: 'Rent',
+          Description: 'blah'
+        }, {
+          _id: 2,
+          Title: 'Hocus Pocus',
+          Description: 'blad'
+        }],
         selectedMovie: null
       };
     }
-    componentDidMount() {
-      _axiosDefault.default.get('https://myflixdb-jjw.herokuapp.com/movies').then(response => {
-        this.setState({
-          movies: response.data
-        });
-      }).catch(error => {
-        console.log(error);
-      });
-    }
+    /*componentDidMount(){*/
+    /*axios.get('https://myflixdb-jjw.herokuapp.com/movies')*/
+    /*.then(response => {*/
+    /*this.setState({*/
+    /*movies: response.data*/
+    /*})*/
+    /*})*/
+    /*.catch(error => {*/
+    /*console.log(error);*/
+    /*});*/
+    /*}*/
     setSelectedMovie(newSelectMovie) {
       this.setState({
         selectedMovie: newSelectMovie
@@ -26315,14 +26324,13 @@ try {
     }
     render() {
       const {movies, selectedMovie} = this.state;
-      // if (selectedMovie) return <MovieView movieData = {selectedMovie} />;
       if (movies.length === 0) return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "main-view",
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37,
+            lineNumber: 36,
             columnNumber: 39
           }
         })
@@ -26333,7 +26341,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40,
+            lineNumber: 39,
             columnNumber: 11
           }
         }, selectedMovie ? /*#__PURE__*/_reactDefault.default.createElement(_movieViewMovieView.MovieView, {
@@ -26344,19 +26352,19 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42,
+            lineNumber: 41,
             columnNumber: 17
           }
         }) : movies.map(movie => /*#__PURE__*/_reactDefault.default.createElement(_movieCardMovieCard.MovieCard, {
           key: movie._id,
           movieData: movie,
-          onMovieClick: newMovie => {
-            this.setSelectedMovie(newMovie);
+          onMovieClick: newSelectMovie => {
+            this.setSelectedMovie(newSelectMovie);
           },
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44,
+            lineNumber: 43,
             columnNumber: 17
           }
         })))
@@ -28127,11 +28135,10 @@ try {
   });
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "C:\\Users\\212597876\\documents\\cf\\jilli\\github\\movie_api_client\\src\\components\\movie-card\\movie-card.jsx";
+  var _jsxFileName = "C:\\Users\\212597876\\Documents\\CF\\jilli\\github\\movie_api_client\\src\\components\\movie-card\\movie-card.jsx";
   class MovieCard extends _reactDefault.default.Component {
     render() {
       const {movieData, onMovieClick} = this.props;
-      console.log(this.props);
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-card",
@@ -28141,7 +28148,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 7,
+            lineNumber: 6,
             columnNumber: 12
           }
         }, movieData.Title)
@@ -28366,11 +28373,11 @@ try {
   });
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "C:\\Users\\212597876\\documents\\cf\\jilli\\github\\movie_api_client\\src\\components\\movie-view\\movie-view.jsx";
+  var _jsxFileName = "C:\\Users\\212597876\\Documents\\CF\\jilli\\github\\movie_api_client\\src\\components\\movie-view\\movie-view.jsx";
   class MovieView extends _reactDefault.default.Component {
     render() {
       const {movieData, onBackClick} = this.props;
-      console.log(this.props);
+      // console.log(this.props);
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-view",
