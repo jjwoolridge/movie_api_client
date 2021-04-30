@@ -13,7 +13,7 @@ export class MainView extends React.Component {
   }
 
   componentDidMount(){
-    axios.get('https://myflixdb-jjw.herokuapp.com/movies')
+    axios.get('https://myflixdbjjw.herokuapp.com/movies')
       .then(response => {
         this.setState({
           movies: response.data

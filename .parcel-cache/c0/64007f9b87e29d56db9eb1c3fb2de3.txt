@@ -34,7 +34,7 @@
 132C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\parcel-bundler\src\builtins\loaders\browser\css-loader.js121436361000000000 0
 93C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\.package-lock.json132641564115490700 0
 97C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\postcss-modules-values132638327154439188 1
-66C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist132642523251224340 1
+66C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist132642518239849158 1
 116C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\@babel\plugin-syntax-async-generators\lib132638324909294910 1
 97C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\object.values\index.js121436361000000000 0
 96C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\lodash\_baseCreate.js121436361000000000 0
@@ -17390,11 +17390,11 @@
 85C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\.bin\which132625490620000000 0
 89C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\.bin\which.cmd132625490620000000 0
 89C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\node_modules\.bin\which.ps1132625490620000000 0
-84C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.02675e63.js132642523251114664 0
-88C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.02675e63.js.map132642523251204393 0
-85C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.d22b8a02.css132642523251004928 0
-89C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.d22b8a02.css.map132642523251084716 0
-77C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.html132642523251014902 0
+84C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.02675e63.js132642518239739467 0
+88C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.02675e63.js.map132642518239829482 0
+85C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.d22b8a02.css132642518239619782 0
+89C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.d22b8a02.css.map132642518239699576 0
+77C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\index.html132642518239610117 0
 87C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\src.78399e21.css.map132632200760000000 0
 82C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\src.78399e21.js132632235260000000 0
 86C:\Users\212597876\Documents\CF\jilli\github\movie_api_client\dist\src.78399e21.js.map132632235260000000 0
