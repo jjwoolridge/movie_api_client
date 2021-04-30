@@ -7,23 +7,22 @@ export class MainView extends React.Component {
   constructor(){
     super();
     this.state = {
-      movies: [{_id: 1, Title: 'Rent', Description: 'blah'},
-                {_id: 2, Title: 'Hocus Pocus', Description: 'blad'}],        
+      movies: [],        
       selectedMovie:null
     };
   }
 
-  // componentDidMount(){
-  //   axios.get('https://myflixdb-jjw.herokuapp.com/movies')
-  //     .then(response => {
-  //       this.setState({
-  //         movies: response.data
-  //       })
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
+  componentDidMount(){
+    axios.get('https://myflixdb-jjw.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   setSelectedMovie(newSelectMovie) {
     this.setState({
