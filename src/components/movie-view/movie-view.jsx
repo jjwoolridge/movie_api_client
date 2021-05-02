@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+//import .scss for view'
+import "./movie-view.scss";
 
 export class MovieView extends React.Component {
 
-  
   render() {
     const { movieData, onBackClick } = this.props;
-//    console.log(this.props);
     return (
       <div className="movie-view" >
         <div className="movie-poster">
@@ -19,16 +20,39 @@ export class MovieView extends React.Component {
           <span className="label">Description: </span>
           <span className="value">{movieData.Description}</span>
         </div>
-        <div className="genre">
+        <div className="year">
+          <span className="label">Year: </span>
+          <span className="value">{movieData.Year}</span>
+        </div>
+        {/* <div className="genre">
           <span className="label">Genre: </span>
-          <span className="value">{movieData.Genre}</span>
-        </div>
-        <div className="director">
+          <span className="value">[{movieData.Genre}]</span>
+        </div> */}
+        {/* <div className="director">
           <span className="label">Director: </span>
-          <span className="value">{movieData.Director}</span>
-        </div>
+          <span className="value">[{movieData.Director}]</span>
+        </div> */}
         <button onClick={() => {onBackClick(null);}}>Back</button>
       </div>
     );
   }
 }
+
+MovieView.propTypes = {
+  movieData: PropTypes.shape({ 
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string,
+      Description: PropTypes.string
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string,
+      Birth: PropTypes.string
+    }), 
+    Year: PropTypes.string.isRequired
+  }).isRequired,
+  onBackClick: PropTypes.func.isRequired
+};
+© 2021 GitHub, Inc.

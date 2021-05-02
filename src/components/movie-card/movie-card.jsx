@@ -1,15 +1,27 @@
 import React from 'react';
+import Prop-Types from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
+//import .scss for view'
+import "./movie-card.scss";
 
 export class MovieCard extends React.Component {
   render () {
     const { movieData, onMovieClick } = this.props;
-    return <div className = "movie-card" onClick={() => {onMovieClick(movieData);}}>{movieData.Title}</div>;
-  }
-<<<<<<< Updated upstream
-}
-=======
-}
 
+    return (
+      <Card>
+        <Card.Img variant="top" src={movie.ImagePath}/>
+        <Card.Body> 
+          <Card.Title>{movie.Title}</Card.Title>
+          <Card.Text>{movie.Description}</Card.Text>
+          <Button variant="link" onClick={() => {onMovieClick(movieData);}}>View</Button>
+        </Card.Body>
+      </Card>
+    )
+  }
+}
 
 MovieCard.propTypes = {
   movieData: PropTypes.shape({ 
@@ -28,4 +40,3 @@ MovieCard.propTypes = {
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired
 };
->>>>>>> Stashed changes

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 //import .scss for view'
 import "./register-view.scss";
 
@@ -20,47 +21,34 @@ export function RegisterView(props) {
     };
 
     return (
-        <form>
-            <label>
-                Username:
-                <input type="text" value={username} onChange= {event => setUsername(event.target.value)} />
-            </label>
-            <br/>
-            <label>
-                Password:
-                <input type="password" value={password} onChange={event => setPassword(event.target.value)} />
-            </label> 
-            <br/>
-            <label>
-                Email:
-                <input type="text" value={email} onChange={event => setEmail(event.target.value)} />
-            </label>
-            <br/>
-            <label>
-                Name:
-                <input type="text" value={name} onChange={event => setName(event.target.value)} />
-            </label>
-            <br/>
-            <label>
-                Birthday:
-                <DatePicker selected = {2000-01-01} onChange={date => setBirthday(date)} />    
-            </label>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-        </form>
+      <Form className = "register-view">
+        <Form.Row>
+          <Form.Group as={Col} controlId="formUsername">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control type="text" placeholder="Enter Username" onChange= {event => setUsername(event.target.value)}/>
+          </Form.Group>
+          <Form.Group as={col} controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control type="password" placeholder="Enter Password" onChange={event => setPassword(event.target.value)} />
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group as={Col} controlId="formEmail">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control type="text" placeholder="Enter Username" onChange= {event => setEmail(event.target.value)}/>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group as={col} controlId="formName">
+            <Form.Label>Name:</Form.Label>
+            <Form.Control type="text" placeholder="Enter Name" onChange={event => setName(event.target.value)} />
+          </Form.Group>
+          <Form.Group as={col} controlId="formBirthday">
+            <Form.Label>Name:</Form.Label>
+            <Form.Control type="text" placeholder="Enter Birthday" onChange={event => setBirthday(event.target.value)} />
+          </Form.Group>
+        </Form.Row>
+        <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+        </Form>
     );
 }
-
-
-RegisterView.propTypes = {
-    username: PropTypes.string,
-    setUsername: PropTypes.func,
-    email: PropTypes.string,
-    setEmail: PropTypes.func,
-    password: PropTypes.string,
-    setPassword: PropTypes.func,
-    name: PropTypes.string,
-    setName: PropTypes.func,
-    birthday: PropTypes.string,
-    setBirthday: PropTypes.func,
-    handleSubmit: PropTypes.func
-  };
