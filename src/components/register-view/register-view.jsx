@@ -27,7 +27,7 @@ export function RegisterView(props) {
             <Form.Label>Username:</Form.Label>
             <Form.Control type="text" placeholder="Enter Username" onChange= {event => setUsername(event.target.value)}/>
           </Form.Group>
-          <Form.Group as={col} controlId="formPassword">
+          <Form.Group as={Col} controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control type="password" placeholder="Enter Password" onChange={event => setPassword(event.target.value)} />
           </Form.Group>
@@ -39,11 +39,11 @@ export function RegisterView(props) {
           </Form.Group>
         </Form.Row>
         <Form.Row>
-          <Form.Group as={col} controlId="formName">
+          <Form.Group as={Col} controlId="formName">
             <Form.Label>Name:</Form.Label>
             <Form.Control type="text" placeholder="Enter Name" onChange={event => setName(event.target.value)} />
           </Form.Group>
-          <Form.Group as={col} controlId="formBirthday">
+          <Form.Group as={Col} controlId="formBirthday">
             <Form.Label>Name:</Form.Label>
             <Form.Control type="text" placeholder="Enter Birthday" onChange={event => setBirthday(event.target.value)} />
           </Form.Group>

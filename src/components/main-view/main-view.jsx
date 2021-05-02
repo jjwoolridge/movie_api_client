@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 import { LoginView } from '../login-view/login-view';
 import { RegisterView } from '../register-view/register-view';

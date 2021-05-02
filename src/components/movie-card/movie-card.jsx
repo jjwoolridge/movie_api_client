@@ -1,5 +1,5 @@
 import React from 'react';
-import Prop-Types from 'prop-types';
+import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
@@ -12,10 +12,10 @@ export class MovieCard extends React.Component {
 
     return (
       <Card>
-        <Card.Img variant="top" src={movie.ImagePath}/>
+        <Card.Img variant="top" src={movieData.ImagePath}/>
         <Card.Body> 
-          <Card.Title>{movie.Title}</Card.Title>
-          <Card.Text>{movie.Description}</Card.Text>
+          <Card.Title>{movieData.Title}</Card.Title>
+          <Card.Text>{movieData.Description}</Card.Text>
           <Button variant="link" onClick={() => {onMovieClick(movieData);}}>View</Button>
         </Card.Body>
       </Card>

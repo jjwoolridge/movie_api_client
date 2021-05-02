@@ -26,7 +26,7 @@ export function LoginView(props) {
             <Form.Label>Username:</Form.Label>
             <Form.Control type="text" placeholder="Enter Username" onChange= {event => setUsername(event.target.value)}/>
           </Form.Group>
-          <Form.Group as={col} controlId="formPassword">
+          <Form.Group as={Col} controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control type="password" placeholder="Enter Password" onChange={event => setPassword(event.target.value)} />
           </Form.Group>
