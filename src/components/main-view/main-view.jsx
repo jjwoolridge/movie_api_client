@@ -47,3 +47,12 @@ export class MainView extends React.Component {
     }
 }
 
+<<<<<<< Updated upstream
+=======
+
+MainView.propTypes = {
+  setSelectedMove: PropTypes.func,
+  onLoggedIn: PropTypes.func,
+  onRegister: PropTypes.func,
+};
+>>>>>>> Stashed changes
