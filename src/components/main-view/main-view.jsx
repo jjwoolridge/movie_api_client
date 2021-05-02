@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
@@ -70,34 +69,28 @@ export class MainView extends React.Component {
     /*check to make sure user is logged in*/
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
     
-   console.log('See Array in console for list of available users.')
-   console.log(users);
+  //  console.log('See Array in console for list of available users.')
+  //  console.log(users);
     
     if (users.findIndex(function(u) {return u.Username == user}) < 0) return <RegisterView onRegister={user => this.onRegister(user)} />
 
     if (movies.length === 0) return <div className = "main-view"/>;
 
     return (
-      <div className="main-view">
+      <Row className="main-view justify-content-md-center">
         {selectedMovie
           ? (
-            <Row className="justify-content-md-center">
-              <Col md={8}>
+             <Col md={6}>
                 <MovieView movieData = {selectedMovie} onBackClick = {newSelectMovie => {this.setSelectedMovie(newSelectMovie)}}/>
               </Col>
-            </Row>
           )
-          : (
-            <Row className="justify-content-md-center">
-              {movies.map(movie => (
-              <Col md={3}>
+          : movies.map(movie => (
+              <Col lg={3} md={6}>
                   <MovieCard key={movie._id} movieData={movie} onMovieClick = {(newSelectMovie) => {this.setSelectedMovie(newSelectMovie)}} />
               </Col>
-              ))}
-            </Row>
-          )
+            ))
          }
-        </div>
+      </Row>
     );
   }
 }

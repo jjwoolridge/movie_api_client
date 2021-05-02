@@ -48,7 +48,7 @@ export function RegisterView(props) {
             <Form.Control type="text" placeholder="Enter Birthday" onChange={event => setBirthday(event.target.value)} />
           </Form.Group>
         </Form.Row>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+        <Button className="register-button" type="submit" onClick={handleSubmit}>Submit</Button>
         </Form>
     );
 }

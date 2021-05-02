@@ -1,5 +1,24 @@
-$color: steelblue;
+/*color palette from https://coolors.co/157a6e-3a3238-b8b3e9-dad2bc-b4654a*/
+/* SCSS HEX */
+$pine-green: #157a6eff;
+$black-coffee: #3a3238ff;
+$maximum-blue-purple: #b8b3e9ff;
+$bone: #dad2bcff;
+$brown-sugar: #b4654aff;
+$saddle-brown: #823200ff;
+$space-cadet: #34344aff;
+$metallic-sunburst: #a69658ff;
+$cultured: #f6f7f8ff;
+$brown-sugar: #b4654aff;
 
-.my-flix {
-  color: $color;
+* {
+  background-color: white;
+}
+
+.main-view {
+  margin-top: 20px;
+}
+
+button :hover, :active {
+  box-shadow: none !important;
 }

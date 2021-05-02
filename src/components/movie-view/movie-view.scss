@@ -1,8 +1,46 @@
-$color: steelblue;
-$colorbg: lightgray;
+/* SCSS RGB */
+$pine-green: #157a6eff;
+$black-coffee: #3a3238ff;
+$maximum-blue-purple: #b8b3e9ff;
+$bone: #dad2bcff;
+$cultured: #f6f7f8ff;
 
-.movie-view {
-  color: $color;
-  background-color: $colorbg;
+
+.poster {
+  width: 50%;
 }
 
+.movie-view {
+  color: $black-coffee;
+  background-color: white;
+}
+
+.toggle {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.toggle-body {
+  color: $pine-green;
+  background-color: $cultured;
+  padding: 20 !important;
+  margin: 0 !important;
+}
+
+.accordion-button {
+  background-color: $maximum-blue-purple !important;
+  color: $black-coffee !important;
+}
+
+.header-button {
+  font-size: 1.2em !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+.back {
+  margin-top: 30px !important;
+  margin-bottom: 50px !important;
+  border-color: $black-coffee !important;
+  border-width: 2px !important;
+}

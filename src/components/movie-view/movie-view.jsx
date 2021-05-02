@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image';
+
 //import .scss for view'
 import "./movie-view.scss";
 
@@ -8,32 +13,70 @@ export class MovieView extends React.Component {
   render() {
     const { movieData, onBackClick } = this.props;
     return (
-      <div className="movie-view" >
-        <div className="movie-poster">
-          <img src={movieData.ImagePath} />
-        </div>
-        <div className="movie-title">
-          <span className = "label">Title: </span>
-          <span className = "value">{movieData.Title}</span>
-        </div>
-        <div className="description">
-          <span className="label">Description: </span>
-          <span className="value">{movieData.Description}</span>
-        </div>
-        <div className="year">
-          <span className="label">Year: </span>
-          <span className="value">{movieData.Year}</span>
-        </div>
-        {/* <div className="genre">
-          <span className="label">Genre: </span>
-          <span className="value">[{movieData.Genre}]</span>
-        </div> */}
-        {/* <div className="director">
-          <span className="label">Director: </span>
-          <span className="value">[{movieData.Director}]</span>
-        </div> */}
-        <button onClick={() => {onBackClick(null);}}>Back</button>
-      </div>
+      <>
+      <Image className="poster" src={movieData.ImagePath} rounded/>
+      <Accordion className="movie-view" defaultActiveKey="0">
+        <Card>
+          <Card.Header className="toggle">
+            <Accordion.Toggle className="button header-button accordion-button" as={Button} eventKey="0" block>
+              Title
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body className="toggle-body">{movieData.Title}</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        <Card>
+          <Card.Header className="toggle">
+            <Accordion.Toggle className="button header-button accordion-button" as={Button} eventKey="1" block>
+              Year
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body className="toggle-body">{movieData.Year}</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        <Card>
+          <Card.Header className="toggle">
+            <Accordion.Toggle className="button header-button accordion-button" as={Button} eventKey="2" block>
+              Description
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="2">
+            <Card.Body className="toggle-body">{movieData.Description}</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        <Card>
+          <Card.Header className="toggle">
+            <Accordion.Toggle className="button header-button accordion-button" as={Button} eventKey="3" block>
+              Director
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="3">
+            <Card.Body className="toggle-body">
+              {movieData.Director.Name} 
+              <br/> 
+              Born: {movieData.Director.Birth}
+              <br/>
+              Bio: {movieData.Director.Bio}
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        <Card>
+          <Card.Header className="toggle">
+            <Accordion.Toggle className="button header-button accordion-button" as={Button} eventKey="4" block>
+              Genre
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="4">
+            <Card.Body className="toggle-body">
+              {movieData.Genre.Name}: {movieData.Genre.Description}
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        <Button className="button back accordion-button" onClick={() => {onBackClick(null);}}>Back</Button>
+      </Accordion>
+      </>
     );
   }
 }
