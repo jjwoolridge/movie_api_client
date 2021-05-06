@@ -1,0 +1,102 @@
+/* SCSS RGB */
+.login-view {
+  margin-top: 30px;
+}
+
+.login-button {
+  background-color: #b8b3e9ff !important;
+  border-color: #3a3238ff !important;
+  color: #3a3238ff !important;
+}
+/* SCSS RGB */
+.register-view {
+  margin-top: 30px;
+}
+
+.register-button {
+  background-color: #b8b3e9ff !important;
+  border-color: #3a3238ff !important;
+  color: #3a3238ff !important;
+}
+/* SCSS RGB */
+.card {
+  border-width: 3px !important;
+  border-color: #3a3238ff !important;
+  margin: 5px;
+}
+
+.movie-card {
+  color: #3a3238ff;
+  background: #f6f7f8ff;
+}
+
+.card-title {
+  color: #157a6eff;
+  background: #f6f7f8ff;
+}
+
+.card-text {
+  background: #f6f7f8ff;
+}
+
+.card-button {
+  background-color: #b8b3e9ff !important;
+  border-color: #3a3238ff !important;
+  color: #3a3238ff !important;
+}
+/* SCSS RGB */
+.poster {
+  width: 50%;
+}
+
+.movie-view {
+  color: #3a3238ff;
+  background-color: white;
+}
+
+.toggle {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.toggle-body {
+  color: #157a6eff;
+  background-color: #f6f7f8ff;
+  padding: 20 !important;
+  margin: 0 !important;
+}
+
+.accordion-button {
+  background-color: #b8b3e9ff !important;
+  color: #3a3238ff !important;
+}
+
+.header-button {
+  font-size: 1.2em !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+.back {
+  margin-top: 30px !important;
+  margin-bottom: 50px !important;
+  border-color: #3a3238ff !important;
+  border-width: 2px !important;
+}
+.main-view {
+  text-align: center;
+}
+/*color palette from https://coolors.co/157a6e-3a3238-b8b3e9-dad2bc-b4654a*/
+/* SCSS HEX */
+* {
+  background-color: white;
+}
+
+.main-view {
+  margin-top: 20px;
+}
+
+button :hover, :active {
+  box-shadow: none !important;
+}
+/*# sourceMappingURL=index.778c89a2.css.map */

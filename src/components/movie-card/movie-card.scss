@@ -1,0 +1,32 @@
+/* SCSS RGB */
+$pine-green: #157a6eff;
+$black-coffee: #3a3238ff;
+$maximum-blue-purple: #b8b3e9ff;
+$bone: #dad2bcff;
+$cultured: #f6f7f8ff;
+
+.card {
+  border-width: 3px !important;
+  border-color: $black-coffee!important;
+  margin: 5px;
+}
+
+.movie-card {
+  color: $black-coffee;
+  background: $cultured;
+}
+
+.card-title {
+  color: $pine-green;
+  background: $cultured;
+}
+
+.card-text {
+  background: $cultured;
+}
+
+.card-button {
+  background-color: $maximum-blue-purple !important;
+  border-color: $black-coffee !important;
+  color: $black-coffee !important;
+}
