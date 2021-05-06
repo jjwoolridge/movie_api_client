@@ -24,15 +24,13 @@ export class MainView extends React.Component {
   }
 
   componentDidMount(){
-    axios.get('https://myflixdbjjw.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
       });
+      this.getMovies(accessToken);
+    }
     axios.get('https://myflixdbjjw.herokuapp.com/users')
       .then(response => {
         this.setState({
@@ -40,7 +38,7 @@ export class MainView extends React.Component {
         });
       })
       .catch(error => {
-        console.log(error);
+        console.log(error + 'component did mount error');
       });
   }
 
@@ -50,10 +48,16 @@ export class MainView extends React.Component {
     });
   }
 
-  onLoggedIn(userinput) {
+  onLoggedIn(userAuthData) {
+    console.log(userAuthData + 'onloggedin userauth data');
     this.setState({
-      user : userinput
+      user : userAuthData.user.Username
     });
+    /*setting authentication data for user*/
+    localStorage.setItem('token', userAuthData.token);
+    localStorage.setItem('user', userAuthData.user.Username);
+    /* getting movie data using token */
+    this.getMovies(userAuthData.token);
   }
 
   onRegister(userinput) {
@@ -62,6 +66,22 @@ export class MainView extends React.Component {
       users : this.state.users.concat({'Username':userinput})
     });
   }
+
+  getMovies(token) {
+    axios.get('https://myflixdbjjw.herokuapp.com/movies', {
+      headers: {Authorization: 'Bearer ${token}'}
+    })
+    .then (response => {
+      /*assign to state*/
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch(function (error){
+      console.log(error + 'getMovies error');
+    });
+  }
+
 
   render() {      
     const {movies, users, selectedMovie, user} = this.state;

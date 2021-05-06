@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import axios from 'axios';
 
 //import .scss for view'
 import "./login-view.scss";
@@ -13,9 +14,22 @@ export function LoginView(props) {
 
     const handleSubmit = () => {
         event.preventDefault();
- //       console.log(username,password);
-        /* send req. for validation to server then call props.onLoggedIn*/
-        props.onLoggedIn(username);
+        console.log(username, password, 'handlesubmit before promise');
+        /*send req. for authentication*/
+        /* ERROR EXISTS AT /login endpoint */
+        axios.post('https://myflixdbjjw.herokuapp.com/login', {
+          Username: username,
+          Password: password
+        })
+        .then(response => {
+          console.log(response.data + 'login response.data');
+          const tokenData = response.data;
+          props.onLoggedIn(tokenData);
+        })
+        .catch(error => {
+          console.log( username + ' ' + password + ' handlesubmit error');
+          console.log('User does not exist')
+        });
     };
 
     
