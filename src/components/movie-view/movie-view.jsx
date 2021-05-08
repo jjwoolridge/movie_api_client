@@ -5,16 +5,19 @@ import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
+import { Link } from "react-router-dom";
+
 //import .scss for view'
 import "./movie-view.scss";
 
 export class MovieView extends React.Component {
 
   render() {
-    const { movieData, onBackClick } = this.props;
+    const { movie, onBackClick } = this.props;
+
     return (
       <>
-      <Image className="poster" src={movieData.ImagePath} rounded/>
+      <Image className="poster" src={movie.ImagePath} rounded/>
       <Accordion className="movie-view" defaultActiveKey="0">
         <Card>
           <Card.Header className="toggle">
@@ -23,7 +26,7 @@ export class MovieView extends React.Component {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Card.Body className="toggle-body">{movieData.Title}</Card.Body>
+            <Card.Body className="toggle-body">{movie.Title}</Card.Body>
           </Accordion.Collapse>
         </Card>
         <Card>
@@ -33,7 +36,7 @@ export class MovieView extends React.Component {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="1">
-            <Card.Body className="toggle-body">{movieData.Year}</Card.Body>
+            <Card.Body className="toggle-body">{movie.Year}</Card.Body>
           </Accordion.Collapse>
         </Card>
         <Card>
@@ -43,7 +46,7 @@ export class MovieView extends React.Component {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="2">
-            <Card.Body className="toggle-body">{movieData.Description}</Card.Body>
+            <Card.Body className="toggle-body">{movie.Description}</Card.Body>
           </Accordion.Collapse>
         </Card>
         <Card>
@@ -54,11 +57,11 @@ export class MovieView extends React.Component {
           </Card.Header>
           <Accordion.Collapse eventKey="3">
             <Card.Body className="toggle-body">
-              {movieData.Director.Name} 
+              <Link to = {'/movies/director/' + movie.Director.Name}>{movie.Director.Name}</Link>
               <br/> 
-              Born: {movieData.Director.Birth}
+              Born: {movie.Director.Birth}
               <br/>
-              Bio: {movieData.Director.Bio}
+              Bio: {movie.Director.Bio}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -70,7 +73,9 @@ export class MovieView extends React.Component {
           </Card.Header>
           <Accordion.Collapse eventKey="4">
             <Card.Body className="toggle-body">
-              {movieData.Genre.Name}: {movieData.Genre.Description}
+              <Link to = {'/movies/genre/' + movie.Genre.Name}>{movie.Genre.Name}</Link>: 
+              <br/> 
+              {movie.Genre.Description}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -82,7 +87,7 @@ export class MovieView extends React.Component {
 }
 
 MovieView.propTypes = {
-  movieData: PropTypes.shape({ 
+  movie: PropTypes.shape({ 
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
     ImagePath: PropTypes.string.isRequired,

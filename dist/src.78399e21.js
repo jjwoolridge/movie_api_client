@@ -22665,7 +22665,7 @@ if ("development" !== "production") {
       };
     }
 
-    function cutOffTailIfNeeded(renderState, hasRenderedATailFallback) {
+    function cutOffTailIfNeeded(renderState, hasRendereilFallback) {
       if (getIsHydrating()) {
         // If we're hydrating, we should consume as many items as we can
         // so we don't leave any behind.
@@ -22727,7 +22727,7 @@ if ("development" !== "production") {
 
             if (_lastTailNode === null) {
               // All remaining items in the tail are insertions.
-              if (!hasRenderedATailFallback && renderState.tail !== null) {
+              if (!hasRendereilFallback && renderState.tail !== null) {
                 // We suspended during the head. We want to show at least one
                 // row at the tail. So we'll keep on and cut off the rest.
                 renderState.tail.sibling = null;
@@ -29615,15 +29615,15 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          movieData = _this$props.movieData,
+          movie = _this$props.movie,
           onMovieClick = _this$props.onMovieClick;
       console.log(this.props);
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-card",
         onClick: function onClick() {
-          onMovieClick(movieData);
+          onMovieClick(movie);
         }
-      }, movieData.Title);
+      }, movie.Title);
     }
   }]);
 
@@ -29680,7 +29680,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          movieData = _this$props.movieData,
+          movie = _this$props.movie,
           onBackClick = _this$props.onBackClick;
       console.log(this.props);
       return /*#__PURE__*/_react.default.createElement("div", {
@@ -29688,32 +29688,32 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-poster"
       }, /*#__PURE__*/_react.default.createElement("img", {
-        src: movieData.ImagePath
+        src: movie.ImagePath
       })), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-title"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Title: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.Title)), /*#__PURE__*/_react.default.createElement("div", {
+      }, movie.Title)), /*#__PURE__*/_react.default.createElement("div", {
         className: "description"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Description: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.Description)), /*#__PURE__*/_react.default.createElement("div", {
+      }, movie.Description)), /*#__PURE__*/_react.default.createElement("div", {
         className: "genre"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Genre: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.Genre)), /*#__PURE__*/_react.default.createElement("div", {
+      }, movie.Genre)), /*#__PURE__*/_react.default.createElement("div", {
         className: "director"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Director: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.Director)), /*#__PURE__*/_react.default.createElement("button", {
+      }, movie.Director)), /*#__PURE__*/_react.default.createElement("button", {
         onClick: function onClick() {
           onBackClick(null);
         }
@@ -29810,7 +29810,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
 
       var _this$state = this.state,
           movies = _this$state.movies,
-          selectedMovie = _this$state.selectedMovie; // if (selectedMovie) return <MovieView movieData = {selectedMovie} />;
+          selectedMovie = _this$state.selectedMovie; // if (selectedMovie) return <MovieView movie = {selectedMovie} />;
 
       if (movies.length === 0) return /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
@@ -29818,14 +29818,14 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
       }, selectedMovie ? /*#__PURE__*/_react.default.createElement(_movieView.MovieView, {
-        movieData: selectedMovie,
+        movie: selectedMovie,
         onBackClick: function onBackClick(newSelectMovie) {
           _this2.setSelectedMovie(newSelectMovie);
         }
       }) : movies.map(function (movie) {
         return /*#__PURE__*/_react.default.createElement(_movieCard.MovieCard, {
           key: movie._id,
-          movieData: movie,
+          movie: movie,
           onMovieClick: function onMovieClick(movie) {
             _this2.setSelectedMovie(movie);
           }

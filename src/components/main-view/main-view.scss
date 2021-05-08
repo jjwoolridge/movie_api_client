@@ -1,8 +1,16 @@
-$textcolor: rgb(180, 70, 162);
-$color: rgba(126, 125, 125, 0.562);
-
+/* SCSS RGB */
+$pine-green: #157a6eff;
+$black-coffee: #3a3238ff;
+$maximum-blue-purple: #b8b3e9ff;
+$bone: #dad2bcff;
+$cultured: #f6f7f8ff;
 
 .main-view{
   text-align: center;
 }
 
+.logout-button {
+  background-color: $maximum-blue-purple !important;
+  border-color: $black-coffee !important;
+  color: $black-coffee !important;
+}

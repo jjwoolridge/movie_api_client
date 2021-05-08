@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 //import .scss for view'
 import "./register-view.scss";
 
@@ -13,11 +15,25 @@ export function RegisterView(props) {
     const [ name, setName ] = useState('');
     const [ birthday, setBirthday ] = useState(new Date());
 
-    const handleSubmit = () => {
-        event.preventDefault();
-//       console.log(username,password, email, name, birthday);
+    const handleSubmit = (e) => {
+        e.preventDefault();
         /* send req. for validation to server then call props.onRegister*/
-        props.onRegister(username);
+        axios.post('https://myflixdbjjw.herokuapp.com/register', {
+          Username: username,
+          Password: password,
+          Email: email,
+          Name: name,
+          Birthday: birthday
+        })
+        .then(response => {
+          const userData = response.data;
+          console.log(userData);
+          console.log(userData.Username, userData.Password);
+          window.open('/','_self');
+        })
+        .catch(e => {
+          console.log('did not get to login errors');
+        });
     };
 
     return (
@@ -35,7 +51,7 @@ export function RegisterView(props) {
         <Form.Row>
           <Form.Group as={Col} controlId="formEmail">
             <Form.Label>Email:</Form.Label>
-            <Form.Control type="text" placeholder="Enter Username" onChange= {event => setEmail(event.target.value)}/>
+            <Form.Control type="text" placeholder="Enter Email" onChange= {event => setEmail(event.target.value)}/>
           </Form.Group>
         </Form.Row>
         <Form.Row>
@@ -44,7 +60,7 @@ export function RegisterView(props) {
             <Form.Control type="text" placeholder="Enter Name" onChange={event => setName(event.target.value)} />
           </Form.Group>
           <Form.Group as={Col} controlId="formBirthday">
-            <Form.Label>Name:</Form.Label>
+            <Form.Label>Birthday:</Form.Label>
             <Form.Control type="text" placeholder="Enter Birthday" onChange={event => setBirthday(event.target.value)} />
           </Form.Group>
         </Form.Row>

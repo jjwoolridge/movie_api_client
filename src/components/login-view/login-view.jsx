@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 //import .scss for view'
 import "./login-view.scss";
@@ -12,23 +13,19 @@ export function LoginView(props) {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const handleSubmit = () => {
-        event.preventDefault();
-        console.log(username, password, 'handlesubmit before promise');
+    const handleSubmit = (e) => {
+        e.preventDefault();
         /*send req. for authentication*/
-        /* ERROR EXISTS AT /login endpoint */
         axios.post('https://myflixdbjjw.herokuapp.com/login', {
           Username: username,
           Password: password
         })
         .then(response => {
-          console.log(response.data + 'login response.data');
           const tokenData = response.data;
           props.onLoggedIn(tokenData);
         })
-        .catch(error => {
-          console.log( username + ' ' + password + ' handlesubmit error');
-          console.log('User does not exist')
+        .catch(e => {
+          console.log('User does not exist');
         });
     };
 
@@ -46,6 +43,9 @@ export function LoginView(props) {
           </Form.Group>
         </Form.Row>  
         <Button className="login-button" type="submit" onClick={handleSubmit}>Submit</Button>
+        <Link to = {'/register'}>
+          <Button className="login-button" type="submit">Register</Button>
+        </Link>
         </Form>
-    );
+    )
 }
