@@ -14,6 +14,7 @@ export class GenreView extends React.Component {
 
   render() {
     const { genre, onBackClick } = this.props;
+
     return (
       <>
       <Accordion className="genre-view" defaultActiveKey="0">
@@ -45,7 +46,9 @@ export class GenreView extends React.Component {
           </Card.Header>
           <Accordion.Collapse eventKey="2">
             <Card.Body className="toggle-body">
-              Show list of movies here
+               <ul className="toggle-body">
+                {(genre.Movies).map((movie, i) => <li className="toggle-body" movie={genre.Movies} key={i} />)} 
+              </ul>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -55,21 +58,3 @@ export class GenreView extends React.Component {
     );
   }
 }
-
-// MovieView.propTypes = {
-//   movie: PropTypes.shape({ 
-//     Title: PropTypes.string.isRequired,
-//     Description: PropTypes.string.isRequired,
-//     ImagePath: PropTypes.string.isRequired,
-//     Genre: PropTypes.shape({
-//       Name: PropTypes.string,
-//       Description: PropTypes.string
-//     }),
-//     Director: PropTypes.shape({
-//       Name: PropTypes.string,
-//       Birth: PropTypes.string
-//     }), 
-//     Year: PropTypes.string.isRequired
-//   }).isRequired,
-//   onBackClick: PropTypes.func.isRequired
-// };

@@ -13,8 +13,9 @@ import "./director-view.scss";
 export class DirectorView extends React.Component {
 
   render() {
-    const { director, onBackClick } = this.props;
-    console.log(director);
+    const { director, movies, onBackClick } = this.props;
+    const directed = (movies.map(m => (m.Director.Name === director.name)));
+
     return (
       <>
       <Accordion className="director-view" defaultActiveKey="0">
@@ -60,7 +61,9 @@ export class DirectorView extends React.Component {
           </Card.Header>
           <Accordion.Collapse eventKey="3">
             <Card.Body className="toggle-body">
-              List
+              <ul className="toggle-body">
+                {(director.Movies).map((movie, i) => <li className="toggle-body" movie={director.Movies} key={i} />)} 
+              </ul>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -70,21 +73,3 @@ export class DirectorView extends React.Component {
     );
   }
 }
-
-// MovieView.propTypes = {
-//   movie: PropTypes.shape({ 
-//     Title: PropTypes.string.isRequired,
-//     Description: PropTypes.string.isRequired,
-//     ImagePath: PropTypes.string.isRequired,
-//     Genre: PropTypes.shape({
-//       Name: PropTypes.string,
-//       Description: PropTypes.string
-//     }),
-//     Director: PropTypes.shape({
-//       Name: PropTypes.string,
-//       Birth: PropTypes.string
-//     }), 
-//     Year: PropTypes.string.isRequired
-//   }).isRequired,
-//   onBackClick: PropTypes.func.isRequired
-// };

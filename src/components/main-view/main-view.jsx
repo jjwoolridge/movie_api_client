@@ -70,7 +70,8 @@ export class MainView extends React.Component {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     this.setState({
-      user: null
+      user: null,
+      userProf: null
     });
   }
 
@@ -84,8 +85,8 @@ export class MainView extends React.Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/users/!users.Username"> Profile</Nav.Link>
+              <Nav.Link href={"/"}>Home</Nav.Link>
+              <Nav.Link to={"/users/"} onClick={() => {this.ProfileView()}} disabled> Profile</Nav.Link>
               <Nav.Link onClick={() => {this.onLoggedOut()}}>Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -127,7 +128,7 @@ export class MainView extends React.Component {
                 </Col>
               if (movies.length === 0) return <div className = "main-view"/>;
               return <Col md={6}>
-              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick= {() => history.goBack()} />
+              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} movies={movies} onBackClick= {() => history.goBack()} />
             </Col>
             }}/>
             <Route exact path="/movies/genre/:genre" render={({ match, history }) => {
@@ -147,11 +148,12 @@ export class MainView extends React.Component {
                 </Col>
               if (movies.length === 0) return <div className = "main-view"/>;
               return <Col md={8}>
-              <ProfileView user={user} movies = {movies} onBackClick= {() => history.goBack()} />
+              <ProfileView user={user} movies={movies}/>
             </Col>
             }}/> 
-          </Row>
+          </Row>        
         </Router>
+
       </>
     )
   }

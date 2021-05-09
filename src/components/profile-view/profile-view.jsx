@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 //import .scss for view'
 import "./profile-view.scss";
 
+
 export function ProfileView(props) {
   const { user, movies } = this.props;
   const [ username, setUsername ] = useState('');
@@ -18,6 +19,22 @@ export function ProfileView(props) {
   const [ email, setEmail ] = useState('');
   const [ name, setName ] = useState('');
   const [ birthday, setBirthday ] = useState(new Date());
+
+  const getUserInfo = (e) => {
+    e.preventDefault();
+    /*send req. for authentication*/
+    axios.get('https://myflixdbjjw.herokuapp.com/users', {
+      Username: username,
+      Password: password
+    })
+    .then(response => {
+      const tokenData = response.data;
+      props.onLoggedIn(tokenData);
+    })
+    .catch(e => {
+      console.log('User does not exist');
+    });
+  };
 
 
   return ( 
