@@ -85,16 +85,6 @@
   border-width: 2px !important;
 }
 /* SCSS RGB */
-.main-view {
-  text-align: center;
-}
-
-.logout-button {
-  background-color: #b8b3e9ff !important;
-  border-color: #3a3238ff !important;
-  color: #3a3238ff !important;
-}
-/* SCSS RGB */
 .poster {
   width: 50%;
 }
@@ -172,7 +162,27 @@
   border-color: #3a3238ff !important;
   border-width: 2px !important;
 }
+/* SCSS RGB */
+.profile-view {
+  margin-top: 30px;
+}
 
+.submit-button {
+  background-color: #b8b3e9ff !important;
+  border-color: #3a3238ff !important;
+  color: #3a3238ff !important;
+  margin: 20px;
+}
+/* SCSS RGB */
+.main-view {
+  text-align: center;
+}
+
+.logout-button {
+  background-color: #b8b3e9ff !important;
+  border-color: #3a3238ff !important;
+  color: #3a3238ff !important;
+}
 /*color palette from https://coolors.co/157a6e-3a3238-b8b3e9-dad2bc-b4654a*/
 /* SCSS HEX */
 * {

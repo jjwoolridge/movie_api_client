@@ -25,7 +25,7 @@ export function LoginView(props) {
           props.onLoggedIn(tokenData);
         })
         .catch(e => {
-          console.log('User does not exist');
+          console.log('User does not exist - loginview');
         });
     };
 
